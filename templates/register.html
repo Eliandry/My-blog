@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+
+    <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">Зарегестрироваться</h1>
+            <p>Создайте аккаунт для дальнейшей работы</p>
+    </div>
+    <form action="/auth/register/" method="post" >
+             {% csrf_token %}
+            <div class="text-center mb-5">
+                <div class="form-label-group mb-3">
+                    <label>Введите никнейм:</label>{{form.username}}
+                </div>
+
+                <div class="form-label-group mb-3">
+                    <label>Введите имя :</label>{{form.first_name}}
+                </div>
+
+                <div class="form-label-group mb-3">
+                    <label>Введите почту :</label>{{form.email}}
+                </div>
+
+                <div class="form-label-group mb-3">
+                    <label>Введите пароль :</label>{{form.password}}
+                </div>
+
+                <div class="form-label-group mb-3">
+                    <label>Повторите пароль :</label>{{form.password2}}
+                </div>
+                <div class="center">
+                    <button class="btn btn-secondary btn-lg btn-block" type="submit">Registration</button>
+                </div>
+            </div>
+
+    </form>
+{% endblock %}
