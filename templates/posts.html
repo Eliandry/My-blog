@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block content %}
+    {% for post in object_list%}
+        <div>
+        <h1>{{post.name}}</h1>
+        <h4>{{post.time}}</h4>
+        </div>
+    {%endfor%}
+{% endblock %}

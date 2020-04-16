@@ -17,13 +17,19 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from examApp import views
-
+from examApp.models import News, Article
+from django.views.generic import ListView
 
 urlpatterns = [
-    path('',views.index),
+    path('', views.index),
     path('admin/', admin.site.urls),
     path('auth/login/', views.login),
     path('auth/logout/', views.logout),
     path('auth/register/', views.register),
-
+    path('create/article/', views.new),
+    path('create/news/', views.new_news),
+    path('allnews/', ListView.as_view(queryset=News.objects.all().order_by('-time')[:20],
+                                      template_name='posts.html')),
+    path('allarticle/', ListView.as_view(queryset=Article.objects.all().order_by('-time')[:20],
+                                         template_name='posts.html'))
 ]

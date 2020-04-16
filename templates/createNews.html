@@ -1,0 +1,33 @@
+{% extends "main.html" %}
+{% block content %}
+    <div class="text-center mb-4">
+          <h1 class="h3 mb-3 font-weight-normal">Создание новости</h1>
+          <p>Создайте новостную статью и опубликуйте ее на нашем сайте</p>
+    </div>
+    <form action="/create/news/" method="post" >
+        {% csrf_token %}
+        <div class="text-center mb-4" >
+            <div class="form-label-group mb-3">
+                <label>Название новости:</label>
+                <h3><input type="text" maxlength="60" size="60" name="name" id="name"></h3>
+            </div>
+            <div class="form-label-group mb-3">
+                <label>Изображение для статьи :</label>
+                <h5><input type="file" name="image" id="image"></h5>
+            </div>
+            <div>
+                <label>Текст новости: </label>
+                <h5><textarea rows="27" cols="110" name="text" id="text"></textarea></h5>
+                <label for="text">(Если вы закончили писать новость перепроверьте на наличие ошибок)</label>
+            </div>
+        </div>
+        <div class="center">
+            <div class="checkbox mb-3">
+              <label>
+                    <input type="checkbox" value="remember-me">Подтвердить
+              </label>
+            </div>
+            <button class="btn btn-secondary btn-lg btn-block" type="submit">Опубликовать</button>
+        </div>
+    </form>
+{% endblock %}

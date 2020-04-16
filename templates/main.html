@@ -39,6 +39,14 @@
           font-weight: bold;
           font-size: 1.25em;
         }
+
+    .btn-rounded {
+        border-radius: 19px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 3px;
+}
+
   </style>
 </head>
 <body class="container">
@@ -51,21 +59,34 @@
                 <h2 ><a class="blog-header-logo text-dark" href="/">Мой блог</a></h2>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
-                <input type="text" class="form-control" placeholder="Search">
-                <a class="text-muted" href="" aria-label="Search">
+                 <a class="text-muted" href="" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
                 </a>
                 {% if username %}
-                    <a class="btn btn-outline-primary" href="/auth/logout/">Выйти ({{username}})</a>
+                    <a class="btn btn-outline-warning" href="/create/news">Создать новость</a>
+
+                    <a class=" btn btn-outline-info"  href="/create/article/">Создать статью</a>
+                    <div class="col-4">
+                    <a class="btn btn-outline-danger" href="/auth/logout/">Выйти</a>
+                    </div>
                 {% else %}
                     <a class="btn btn-outline-primary" href="/auth/login/">Войти</a>
-                    <p> </p>
                     <a class="btn btn-outline-success" href="/auth/register/">Регистрация</a>
                 {% endif %}
           </div>
     </div>
-        <hr>
   </header>
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+
+      <a class="p-2 text-muted" href="/allnews">Новости</a>
+      <a class="p-2 text-muted" href="/allarticle">Статьи</a>
+      <a class="p-2 text-muted" href="#">Технологии</a>
+      <a class="p-2 text-muted" href="#">Дизайн</a>
+      <a class="p-2 text-muted" href="#">Политика</a>
+
+    </nav>
+  </div>
     {% block content %}
 	{% endblock %}
 </body>

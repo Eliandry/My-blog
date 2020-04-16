@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib import auth
 from .forms import UserRegistrationForm
+from .models import Article,News
+import datetime
 
 
 def index(request):
@@ -42,3 +44,26 @@ def register(request):
     else:
         user_form = UserRegistrationForm()
     return render(request, 'register.html', {'form': user_form})
+def new(request):
+    now = datetime.datetime.now()
+    if request.method=="POST":
+        model_article = Article()
+        model_article.name=request.POST.get('name')
+        model_article.time = now.strftime("%Y-%m-%d %H:%M")
+        model_article.description = request.POST.get('description')
+        model_article.text = request.POST.get('text')
+        model_article.image=request.POST.get('image')
+        model_article.save()
+        return HttpResponseRedirect('/')
+    return render(request,'createArticle.html')
+def new_news(request):
+    now = datetime.datetime.now()
+    if request.method=="POST":
+        model_news = News()
+        model_news.name=request.POST.get('name')
+        model_news.text = request.POST.get('text')
+        model_news.time = now.strftime("%Y-%m-%d %H:%M")
+        model_news.image=request.POST.get('image')
+        model_news.save()
+        return HttpResponseRedirect('/')
+    return render(request,'createNews.html')
