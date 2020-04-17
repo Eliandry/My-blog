@@ -2,16 +2,15 @@ from django.db import models
 
 
 class Article(models.Model):
-    name = models.CharField(max_length=25)
-    description = models.CharField(max_length=70)
+    name = models.CharField(max_length=35)
+    description = models.CharField(max_length=100)
     time = models.DateTimeField()
     text = models.TextField()
-    image = models.ImageField()
-
+    image = models.ImageField(upload_to='images/article/', blank=True)
 
 
 class News(models.Model):
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=100)
     text = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='images/news/', blank=True)
     time = models.DateTimeField()

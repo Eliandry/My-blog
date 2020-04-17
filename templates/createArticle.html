@@ -1,10 +1,11 @@
 {% extends "main.html" %}
+{% load staticfiles %}
 {% block content %}
     <div class="text-center mb-4">
           <h1 class="h3 mb-3 font-weight-normal">Создание статьи</h1>
           <p>Создайте статью и опубликуйте ее на нашем сайте</p>
     </div>
-    <form action="/create/article/" method="post" >
+    <form action="/create/article/" method="post" enctype="multipart/form-data" >
         {% csrf_token %}
         <div class="text-center mb-4" >
             <div class="form-label-group mb-3">
@@ -13,7 +14,7 @@
             </div>
             <div class="form-label-group mb-3">
                 <label>Изображение для статьи :</label>
-                <h5><input type="file" name="image" id="image"></h5>
+                {{form}}
             </div>
             <div class="form-label-group mb-3">
                 <label>Краткое описание:</label>

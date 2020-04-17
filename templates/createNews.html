@@ -4,7 +4,7 @@
           <h1 class="h3 mb-3 font-weight-normal">Создание новости</h1>
           <p>Создайте новостную статью и опубликуйте ее на нашем сайте</p>
     </div>
-    <form action="/create/news/" method="post" >
+    <form action="/create/news/" method="post" enctype="multipart/form-data" >
         {% csrf_token %}
         <div class="text-center mb-4" >
             <div class="form-label-group mb-3">
@@ -13,7 +13,7 @@
             </div>
             <div class="form-label-group mb-3">
                 <label>Изображение для статьи :</label>
-                <h5><input type="file" name="image" id="image"></h5>
+                {{form}}
             </div>
             <div>
                 <label>Текст новости: </label>

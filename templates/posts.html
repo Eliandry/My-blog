@@ -1,9 +1,21 @@
 {% extends "main.html" %}
 {% block content %}
+{% load staticfiles %}
+    <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Актуальное посты</h1>
+        <p class="mb-auto">Читайте все самое интересное у нас на сайте</p>
+    </div>
     {% for post in object_list%}
-        <div>
-        <h1>{{post.name}}</h1>
-        <h4>{{post.time}}</h4>
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0">{{post.name}}</h3>
+          <div class="mb-1 text-muted">{{post.time}}</div>
+          <p class="mb-auto">{{post.description}}</p>
+          <a href="/" class="stretched-link">Читать</a>
         </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="400" height="270" src="/media/{{post.image}}">
+        </div>
+      </div>
     {%endfor%}
 {% endblock %}

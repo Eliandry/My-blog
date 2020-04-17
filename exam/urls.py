@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 from examApp import views
 from examApp.models import News, Article
 from django.views.generic import ListView
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index),
@@ -32,4 +35,4 @@ urlpatterns = [
                                       template_name='posts.html')),
     path('allarticle/', ListView.as_view(queryset=Article.objects.all().order_by('-time')[:20],
                                          template_name='posts.html'))
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()

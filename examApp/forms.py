@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from .models import Article
+from .models import Article, News
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -21,4 +21,10 @@ class UserRegistrationForm(forms.ModelForm):
 class AddArticle(forms.ModelForm):
     class Meta:
         model = Article
+        fields = ['image']
+
+
+class AddNews(forms.ModelForm):
+    class Meta:
+        model = News
         fields = ['image']
