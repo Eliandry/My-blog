@@ -2,7 +2,7 @@
 {% block content %}
 {% load staticfiles %}
     <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Актуальное статьи</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Актуальные новости</h1>
         <p class="mb-auto">Читайте все самое интересное у нас на сайте</p>
     </div>
     {% for post in object_list%}
@@ -10,11 +10,10 @@
         <div class="col p-4 d-flex flex-column position-static">
           <h3 class="mb-0">{{post.name}}</h3>
           <div class="mb-1 text-muted">{{post.time}}</div>
-          <p class="mb-auto">{{post.description}}</p>
-          <a href="/posts/{{post.id}}" class="stretched-link">Читать</a>
+          <a href="/news/{{post.id}}" class="stretched-link">Читать</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <img class="bd-placeholder-img" width="400" height="270" src="/media/{{post.image}}">
+          <img class="bd-placeholder-img" width="350" height="230" src="/media/{{post.image}}">
         </div>
       </div>
     {%endfor%}

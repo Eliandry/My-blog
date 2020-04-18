@@ -9,7 +9,9 @@ urlpatterns = [
     path('create/article/', views.new),
     path('create/news/', views.new_news),
     path('allnews/', ListView.as_view(queryset=News.objects.all().order_by('-time')[:20],
-                                      template_name='posts.html')),
+                                      template_name='news.html')),
     path('allarticle/', ListView.as_view(queryset=Article.objects.all().order_by('-time')[:20],
-                                         template_name='posts.html'))
+                                         template_name='posts.html')),
+    path('posts/<int:id>',views.getposts),
+    path('news/<int:id>',views.getnews),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()

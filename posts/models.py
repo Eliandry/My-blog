@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Article(models.Model):
-    name = models.CharField(max_length=35)
+    name = models.CharField(max_length=45)
     description = models.CharField(max_length=100)
     time = models.DateTimeField()
     text = models.TextField()

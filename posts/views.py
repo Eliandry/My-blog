@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib import auth
 from .forms import AddArticle, AddNews
+from .models import Article,News
 import datetime
 
 
@@ -33,3 +34,11 @@ def new_news(request):
         model_news.save()
         return HttpResponseRedirect('/')
     return render(request, 'createNews.html', {'form': form, 'username': auth.get_user(request).username})
+
+
+def getposts(request, id):
+    sub = Article.objects.get(id=id)
+    return render(request, 'onepost.html', {'form': sub,'username': auth.get_user(request).username})
+def getnews(request, id):
+    sub = News.objects.get(id=id)
+    return render(request, 'onepost.html', {'form': sub, 'username': auth.get_user(request).username})
