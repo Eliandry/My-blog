@@ -5,9 +5,6 @@ from django.contrib import auth
 from .forms import UserRegistrationForm
 
 
-def index(request):
-    return render(request, 'index.html', {'username': auth.get_user(request).username})
-
 
 def login(request):
     args = {}

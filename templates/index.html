@@ -1,64 +1,43 @@
 {% extends "main.html" %}
 {% load staticfiles %}
     {% block content %}
-    <div class=" p-4 p-md-4 img__container">
-        <img class="image" alt="Описание изображения..." src="{% static "images/14.jpg" %}">
+    <div class=" p-4 p-md-4 img__container text-center">
+        <img class="image" width="950" height="200" src="/media/{{main_post.image}}">
         <div class="p-4 p-md-5 img__description">
-            <h1 class=" font-italic">Наиболее популярная статья</h1>
-            <p class="font-italic">Текст с кратким описанием</p>
-            <p class="lead mb-0"><a href="#" class=" font-weight-bold">Читать...</a></p>
+            <h1 class=" font-italic">{{main_post.name}}</h1>
+            <p class="font-italic">{{main_post.description}}</p>
+            <p class="lead mb-0"><a href="/posts/{{main_post.id}}" class=" font-weight-bold">Читать...</a></p>
         </div>
     </div>
     <h2 class="blog-post-title">Темы</h2>
     <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Название статьи</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">Текст с крастким описанием статьи</p>
-          <a href="#" class="stretched-link">Читать</a>
+    {% for post in post_article%}
+        <div class="col-md-6">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative head">
+                <div class="col p-4 d-flex flex-column position-static">
+                      <strong class="d-inline-block mb-2 text-primary">Статьи</strong>
+                      <h3 class="mb-0">{{post.name}}</h3>
+                      <div class="mb-1 text-muted">{{post.time}}</div>
+                      <p class="mb-auto">{{post.description}}</p>
+                      <a href="/posts/{{post.id}}" class="stretched-link">Читать</a>
+                </div>
+            <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="300" height="200" src="/media/{{post.image}}">
+            </div>
+          </div>
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="bd-placeholder-img" width="200" height="250" src="{% static "images/13.jpg" %}">
-        </div>
-      </div>
+    {%endfor%}
     </div>
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Название статьи</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="mb-auto">Текст с крастким описанием статьи</p>
-          <a href="/" class="stretched-link">Читать</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img class="bd-placeholder-img" width="200" height="250" src="{% static "images/des.png" %}">
-        </div>
-      </div>
-    </div>
-  </div>
     <h2 class="blog-post-title">Новости</h2>
-    <ul>
-        <li>
-            <time>14 апреля, 14:29</time>
-            <h5>
-                <a href="" style="color: black">Из-за публикации в паблике вк возбуждено уголовное дело</a>
-            </h5>
-
-        </li>
-
-        <li>
-            <time>13 апреля, 15:10</time>
-            <h5 class="">
-                <a href="" style="color: black">Правительство России выступает против анонимности в сети</a>
-            </h5>
-
-        </li>
-    </ul>
-    <a href="/" >
+    {% for post in post_news%}
+        <ul class="head">
+            <li>
+                <time>{{post.time}}</time>
+                <h5><a href="/news/{{post.id}}" style="color: black">{{post.name}}</a></h5>
+            </li>
+        </ul>
+    {%endfor%}
+    <a href="/allnews/" >
         <span >Остальные новости</span>
         <span>
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg"  width="32" height="28" viewBox="0 0 32 28"><path d="M16 8h-6v6h6v-6zM18 18v2h-10v-2h10zM18 6v10h-10v-10h10zM28 18v2h-8v-2h8zM28 14v2h-8v-2h8zM28 10v2h-8v-2h8zM28 6v2h-8v-2h8zM4 21v-15h-2v15q0 0.406 0.297 0.703t0.703 0.297 0.703-0.297 0.297-0.703zM30 21v-17h-24v17q0 0.516-0.172 1h23.172q0.406 0 0.703-0.297t0.297-0.703zM32 2v19q0 1.25-0.875 2.125t-2.125 0.875h-26q-1.25 0-2.125-0.875t-0.875-2.125v-17h4v-2h28z"></path></svg></span>
