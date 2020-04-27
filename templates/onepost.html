@@ -1,16 +1,14 @@
 {% extends "main.html" %}
 {% block content %}
-<div class="col-md-9 blog-main">
-    <div class="blog-post">
+<div>
+    <div >
     <h2 class="blog-post-title">{{form.name}}</h2>
     <p class="blog-post-meta">{{form.time}}</p>
     <h4>{{form.description}}</h4>
     <hr>
     <img class="bd-placeholder-img" width="600" height="400" src="/media/{{form.image}}">
     <hr>
-        <div class="text-center mb-4">
-            <p><font size="5">{{form.text}}</font></p>
-         </div>
+    <pre><font size="4">{{form.text}}</font></pre>
     </div>
 </div>
 {% endblock %}
