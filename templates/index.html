@@ -13,8 +13,8 @@
     <div class="row mb-2">
     {% for post in post_article%}
         <div class="col-md-6">
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative head">
-                <div class="col p-4 d-flex flex-column position-static">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative posts">
+                <div class="col p-4 d-flex flex-column position-static ">
                       <strong class="d-inline-block mb-2 text-primary">Статьи</strong>
                       <h3 class="mb-0">{{post.name}}</h3>
                       <div class="mb-1 text-muted">{{post.time}}</div>
@@ -30,7 +30,7 @@
     </div>
     <h2 class="blog-post-title">Новости</h2>
     {% for post in post_news%}
-        <ul class="head">
+        <ul class="posts">
             <li>
                 <time>{{post.time}}</time>
                 <h5><a href="/news/{{post.id}}" style="color: black">{{post.name}}</a></h5>

@@ -12,10 +12,11 @@
           <div class="form-label-group mb-4">
               <input type="text" id="username" name="username" class="form-control" placeholder="Your name">
           </div>
-          <div class="form-label-group">
+          <div class="form-label-group mb-3">
                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" autofocus="">
+              Забыли пароль? <a href="{% url 'pass-reset' %}"> Восстановить</a>
           </div>
-          <div class="checkbox mb-3">
+          <div class="checkbox mb-1">
               <label>
                     <input type="checkbox" value="remember-me"> Remember me
               </label>
