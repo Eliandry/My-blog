@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.contrib import auth
 from .forms import UserRegistrationForm
-
 
 
 def login(request):
@@ -42,3 +42,15 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'register.html', {'form': user_form})
 
+
+def validate(request):
+    if request.GET:
+        email = request.GET.get('email')
+        is_taken = User.objects.filter(email=email).exists()
+        if is_taken:
+            data = {
+                "is_taken": "Этот почтовый адрес уже занят!"
+            }
+            return JsonResponse(data)
+        else:
+            return JsonResponse({'ok': 'все ок :) '})

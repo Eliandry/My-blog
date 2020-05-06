@@ -37,6 +37,6 @@ urlpatterns = [
     path('password-reset/done/',authViews.PasswordResetDoneView.as_view(template_name='password_reset_done.html'),
          name='password_reset_done'),
 
-    path('',include('examApp.urls')),
+    path('auth/',include('examApp.urls')),
     path('',include('posts.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + staticfiles_urlpatterns()

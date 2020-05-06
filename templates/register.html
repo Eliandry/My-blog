@@ -1,6 +1,7 @@
 {% extends "main.html" %}
 {% block content %}
-
+{% load staticfiles %}
+    <script src="{% static "js/registr.js" %}"></script>
     <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Зарегестрироваться</h1>
             <p>Создайте аккаунт для дальнейшей работы</p>
@@ -18,8 +19,8 @@
 
                 <div class="form-label-group mb-3">
                     <label>Введите почту :</label>{{form.email}}
+                    <p id="error-mail"></p>
                 </div>
-
                 <div class="form-label-group mb-3">
                     <label>Введите пароль :</label>{{form.password}}
                 </div>
@@ -31,6 +32,5 @@
                     <button class="btn btn-secondary btn-lg btn-block" type="submit">Registration</button>
                 </div>
             </div>
-
     </form>
 {% endblock %}
