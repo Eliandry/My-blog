@@ -1,7 +1,7 @@
 {% extends "main.html" %}
 {% block content %}
-{% load staticfiles %}
-    <script src="{% static "js/registr.js" %}"></script>
+    {% load staticfiles %}
+    <script src="{% static 'js/registr.js' %}"></script>
     <div class="text-center mb-4">
             <h1 class="h3 mb-3 font-weight-normal">Зарегестрироваться</h1>
             <p>Создайте аккаунт для дальнейшей работы</p>
@@ -29,7 +29,7 @@
                     <label>Повторите пароль :</label>{{form.password2}}
                 </div>
                 <div class="center">
-                    <button class="btn btn-secondary btn-lg btn-block" type="submit">Registration</button>
+                    <button class="btn btn-secondary btn-lg btn-block" id="btn" type="submit">Registration</button>
                 </div>
             </div>
     </form>
