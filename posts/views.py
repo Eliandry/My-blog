@@ -5,6 +5,7 @@ from .forms import AddArticle, AddNews
 from .models import Article,News
 import datetime
 
+
 def index(request):
     article_all=Article.objects.all()
     news_all = News.objects.all()
